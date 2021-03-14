@@ -25,6 +25,7 @@ You can also choose to get many other class attributes from the RecursiveLeastSq
 
 ## **Under the Hood** 
 *I have wrote a complete article on the mathematical foundations and explanation of this code [here](https://adamdhalla.medium.com/recursive-least-squares-b2407126c257)*
+
 Using the Sherman-Morrison-Woodbury (S-M-W) we can find a more efficient way to compute least squares in situtations where we are continuously adding data to a matrix, instead of doing the normal equations and recalculating the computationally expensive A transpose A inverse term. 
 
 Using S-M-W, each iteration of RLS has a matrix P, equal to the current A transpose times the current A inverse. We can indirectly calculate this term without actually doing the nasty computation, and with S-M-W, by knowing the original A transpose A inverse term we can infer what the new updated Anew transpose A inverse is. 
